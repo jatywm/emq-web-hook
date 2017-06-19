@@ -160,7 +160,7 @@ on_message_publish(Message = #mqtt_message{topic = <<"$SYS/", _/binary>>}, _Env)
 on_message_publish(Message = #mqtt_message{topic = Topic}, {Filter}) ->
   with_filter(
     fun() ->
-      {FromClientId, FromUsername} = format_from(Message#mqtt_message.from),
+      {FromClientId, FromUsername, IPAddress} = format_from(Message#mqtt_message.from),
       Params = [{action, message_publish},
         {from_client_id, FromClientId},
         {from_username, FromUsername},
