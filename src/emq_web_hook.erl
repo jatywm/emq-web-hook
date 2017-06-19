@@ -164,6 +164,7 @@ on_message_publish(Message = #mqtt_message{topic = Topic}, {Filter}) ->
       Params = [{action, message_publish},
         {from_client_id, FromClientId},
         {from_username, FromUsername},
+        {ipaddress, IPAddress},
         {topic, Message#mqtt_message.topic},
         {qos, Message#mqtt_message.qos},
         {retain, Message#mqtt_message.retain},
